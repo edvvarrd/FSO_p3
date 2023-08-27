@@ -14,8 +14,6 @@ app.use(
 	)
 )
 
-app.use(express.static('dist'))
-
 app.use(express.json())
 
 let persons = [
@@ -94,6 +92,8 @@ app.delete('/api/persons/:id', (request, response) => {
 	persons = persons.filter(person => person.id !== id)
 	response.status(204).end()
 })
+
+app.use(express.static('dist'))
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
