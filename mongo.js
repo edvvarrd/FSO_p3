@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
@@ -23,7 +22,7 @@ const person = new Person({
 })
 
 if (process.argv[3] && process.argv[4]) {
-	person.save().then(result => {
+	person.save().then(() => {
 		console.log(`Added ${person.name} with number ${person.number}`)
 		mongoose.connection.close()
 	})
