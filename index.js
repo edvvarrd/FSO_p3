@@ -82,10 +82,6 @@ app.delete('/api/persons/:id', (request, response, next) => {
 		.catch(error => next(error))
 })
 
-const unknownEndpoint = (request, response) => {
-	response.status(404).send({ error: 'unknown endpoint' })
-}
-
 app.put('/api/persons/:id', (request, response, next) => {
 	const { name, number } = request.body
 
@@ -103,6 +99,10 @@ app.put('/api/persons/:id', (request, response, next) => {
 		})
 		.catch(error => next(error))
 })
+
+const unknownEndpoint = (request, response) => {
+	response.status(404).send({ error: 'unknown endpoint' })
+}
 
 app.use(unknownEndpoint)
 
